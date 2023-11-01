@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.vet.main.treatmentchart.TreatmentChartDAO">
+	
+		<select id="getTotal" parameterType="Pager" resultType="Long">
+	  		SELECT COUNT(CHARTNO) FROM TREATMENTCHART
+	  	</select>
+		
+		<!-- 진료차트목록 -->
+		<select id="getList" parameterType="Pager" resultType="TreatmentChartVO">
+			SELECT * FROM TREATMENTCHART
+				ORDER BY CHARTNO DESC
+				LIMIT #{startRow}, #{perPage}
+		</select>
+		
+		<!-- 진료차트추가 -->
+		<insert id="setAdd" parameterType="TreatmentChartVO">
+			INSERT INTO TREATMENTCHART (CHARTNO, CONTENTS, DISEASE, DATE, CUSTOMERNO, USERNAME)
+				VALUES (NULL, #{contents}, #{disease}, #{date}, #{customerNo}, #{userName})
+		</insert>
+		
+	</mapper>

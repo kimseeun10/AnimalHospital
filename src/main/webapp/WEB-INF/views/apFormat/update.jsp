@@ -120,7 +120,7 @@
 	</script>
 	
 
-	<script src="/resources/js/approval/format/formatUpdate.js"></script>
+	<script src="/js/approval/format/formatUpdate.js"></script>
 	
 </body>
 </html>

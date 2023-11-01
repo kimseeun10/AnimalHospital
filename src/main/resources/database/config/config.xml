@@ -13,9 +13,17 @@
 		<typeAlias type="com.vet.main.approval.format.ApFormatVO" alias="ApFormatVO"/>
 		<typeAlias type="com.vet.main.approval.ApprovalVO" alias="ApprovalVO"/>
 
+		<typeAlias type="com.vet.main.approval.ApprovalFileVO" alias="ApprovalFileVO"/>
+		<typeAlias type="com.vet.main.approval.ApprovalExpenseVO" alias="ApprovalExpenseVO"/>
+
+		<typeAlias type="com.vet.main.emp.EmpVO" alias="EmpVO" />
+
 		<typeAlias type="com.vet.main.customer.CustomerVO" alias="CustomerVO"/>
 		<typeAlias type="com.vet.main.customer.CustomerFileVO" alias="CustomerFileVO"/>
 		<typeAlias type="com.vet.main.file.FileVO" alias="FileVO"/>
+		
+		<typeAlias type="com.vet.main.medicine.MedicineVO" alias="MedicineVO"/>
+		<typeAlias type="com.vet.main.treatmentchart.TreatmentChartVO" alias="TreatmentChartVO"/>
 		
 		<typeAlias type="com.vet.main.reservation.treatment.TreatmentVO" alias="TreatmentVO"/>
 		<typeAlias type="java.util.Map" alias="Map"/>

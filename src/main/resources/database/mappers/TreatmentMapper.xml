@@ -4,8 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.vet.main.reservation.treatment.TreatmentDAO">
+	
 	<select id="getScheduleList" resultType="TreatmentVO">
-			SELECT T.TREATMENTDATE , T.TREATMENTTIME, T.TREATMENTDATET, C.ANIMALNAME, E.NAME 
+			SELECT T.TREATMENTDATE , T.TREATMENTTIME, T.TREATMENTDATET, T.TREATMENTNO, C.ANIMALNAME, E.NAME 
 	  		  FROM TREATMENT T 
 					INNER JOIN CUSTOMER C
 	  						ON T.CUSTOMERNO=C.CUSTOMERNO
@@ -13,8 +14,42 @@
 	  						ON T.EMPNO=E.EMPNO				
 	</select>
 	
-	<!-- <insert id="setTreatmentAdd" parameterType="TreatmentVO">
+	<insert id="setTreatmentAdd" parameterType="TreatmentVO">
 		INSERT INTO TREATMENT VALUES(NULL, NULL, NULL, #{customerNo}, #{empNo}, #{treatmentDatet})		
-	</insert>-->
+	</insert>
+	
+	<select id="getCustomerList" parameterType="String" resultType="CustomerVO">
+		SELECT CUSTOMERNO, ANIMALNAME, NAME
+		  FROM CUSTOMER
+		 WHERE ANIMALNAME=#{animalName}
+	</select>	
+	
+	<select id="getEmpList"  resultType="EmpVO">
+		SELECT *
+		  FROM EMP		 	
+	</select>
+	
+	<select id="getDetail" resultType="TreatmentVO" parameterType="TreatmentVO">
+		SELECT T.TREATMENTNO,T.TREATMENTDATET, C.ANIMALNAME, C.NAME, E.EMPNO
+	  	  FROM TREATMENT T 
+	 		   INNER JOIN CUSTOMER C
+	  						ON T.CUSTOMERNO=C.CUSTOMERNO
+	  				INNER JOIN EMP E 
+	  						ON T.EMPNO=E.EMPNO	
+	  	 WHERE TREATMENTNO=#{treatmentNo} 		
+	</select>
+	
+	<update id="setUpdate" parameterType="TreatmentVO">
+		UPDATE TREATMENT 
+		   SET CUSTOMERNO=#{customerNo},
+		       TREATMENTDATET=#{treatmentDatet},
+		       EMPNO=#{empNo}
+	     WHERE TREATMENTNO=#{treatmentNo}
+	</update>
+	
+	<delete id="setDelete" parameterType="TreatmentVO">
+		DELETE FROM TREATMENT WHERE TREATMENTNO=#{treatmentNo};		
+	</delete>
+	
 
 </mapper>

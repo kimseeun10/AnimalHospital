@@ -23,107 +23,107 @@
 			<div class="layout-page" style="align-items:center;">
 				<c:import url="/WEB-INF/views/layout/topbar.jsp"></c:import>
 				<!-- Content wrapper -->
-					<br><h3 style="/* margin-right: 1200px; */">${vo.animalName}의 상세페이지</h3>
-				<div class="card shadow mb-4" style="box-sizing: content-box;">
-
-					<div style="width: 900px; float: left; margin-bottom: 30px; margin-left: 250px;">
-						<div style="width: 300px; float: left;">
-							<c:forEach items="${vo.fileVO}" var="f">
-								<img alt="" src="../files/${customer}/${f.fileName}"
-								style="width: 200px; height: 200px; margin: 30px;">
-							</c:forEach>
+				<div class="content-wrapper">
+					<!-- Content -->
+					<!-- 내용부분-->
+					<div class="container-xxl flex-grow-1 container-p-y">
+					<h3>${vo.animalName}의 고객정보</h3>
+						<div class="card shadow mb-4" style="align-items: center;">
+							<div>
+								<c:if test="${!empty vo.fileVO}">
+									<div style="width: 300px; float: left;">
+										<c:forEach items="${vo.fileVO}" var="f">
+											<img alt="" src="../files/${customer}/${f.fileName}"
+											style="width: 200px; height: 200px; margin: 30px;">
+										</c:forEach>
+									</div>
+								</c:if>
+								<c:if test="${empty vo.fileVO}">
+									<div style="width: 300px; float: left;">
+											<img alt="" src="/resources/images/default.jpeg"
+											style="width: 200px; height: 200px; margin: 30px;">
+									</div>
+								</c:if>
+								
+								<div style="width: 550px; margin-top: 20px; float: left;">
+									<table class="table">
+										<tr>
+											<td>이름</td>
+											<td>${vo.animalName}</td>
+										</tr>
+										<tr>
+											<td>나이</td>
+											<td>${vo.age}</td>
+										</tr>
+										<tr>
+											<td>성별</td>
+											<td>${vo.gender}</td>
+										</tr>
+										<tr>
+											<td>중성화</td>
+											<td>${vo.neutering}</td>
+										</tr>
+									</table>
+								</div>
+								<br>
+								<div>
+									<table class="table">
+										<tr>
+											<td>몸무게</td>
+											<td>${vo.weight}</td>
+										</tr>
+										<tr>
+											<td>종류</td>
+											<td>${vo.kind}</td>
+										</tr>
+							
+										<tr>
+											<td>보호자이름</td>
+											<td>${vo.name}</td>
+										</tr>
+										<tr>
+											<td>전화번호</td>
+											<td>${vo.phone}</td>
+										</tr>
+										<tr>
+											<td>주소</td>
+											<td>${vo.address}</td>
+										</tr>
+									</table>
+								</div>
+		
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float:right">
+								  삭제
+								</button>
+								<a href="./update?customerNo=${vo.customerNo}" class="btn btn-primary" style="float:right">수정</a>
+								<a href="/treatmentchart/list?customerNo=${vo.customerNo}" class="btn btn-primary" style="float:left">진료차트</a>
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h1 class="modal-title fs-5" id="exampleModalLabel">고객정보삭제</h1>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								        고객정보를 삭제하시겠습니까?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								        <a href="./delete?customerNo=${vo.customerNo}" class="btn btn-primary">삭제</a>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							</div>
 						</div>
-						
-						
-						<%-- <div style="width: 300px; float: left;">
-						<c:if test="${!empty vo.fileName}">
-							<c:forEach items="${vo.fileVO}" var="f">
-								<img alt="" src="../files/${customer}/${f.fileName}"
-								style="width: 200px; height: 200px; margin: 30px;">
-							</c:forEach>
-							</c:if>
-							<c:if test="${empty vo.fileName}">
-								<img alt="" src="/resources/images/mandoo.jpg"
-								style="width: 200px; height: 200px; margin: 30px;">
-							</c:if>
-						</div> --%>
-						
-						
-						<div style="width: 550px; margin-top: 20px; float: left;">
-							<table class="table">
-								<tr>
-									<td>이름</td>
-									<td>${vo.animalName}</td>
-								</tr>
-								<tr>
-									<td>나이</td>
-									<td>${vo.age}</td>
-								</tr>
-								<tr>
-									<td>성별</td>
-									<td>${vo.gender}</td>
-								</tr>
-								<tr>
-									<td>중성화</td>
-									<td>${vo.neutering}</td>
-								</tr>
-							</table>
-						</div>
-						<br>
-						<div>
-							<table class="table">
-								<tr>
-									<td>몸무게</td>
-									<td>${vo.weight}</td>
-								</tr>
-								<tr>
-									<td>종류</td>
-									<td>${vo.kind}</td>
-								</tr>
-					
-								<tr>
-									<td>보호자이름</td>
-									<td>${vo.name}</td>
-								</tr>
-								<tr>
-									<td>전화번호</td>
-									<td>${vo.phone}</td>
-								</tr>
-								<tr>
-									<td>주소</td>
-									<td>${vo.address}</td>
-								</tr>
-							</table>
-						</div>
-
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float:right">
-						  삭제
-						</button>
-						<a href="./update?customerNo=${vo.customerNo}" class="btn btn-primary" style="float:right">수정</a>
-						
-						<!-- Modal -->
-						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h1 class="modal-title fs-5" id="exampleModalLabel">고객정보삭제</h1>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						      <div class="modal-body">
-						        고객정보를 삭제하시겠습니까?
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-						        <a href="./delete?customerNo=${vo.customerNo}" class="btn btn-primary">삭제</a>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-					</div>
 				</div>
+				<!-- Content wrapper -->
 			</div>
 			<!-- / Layout page -->
+			</div>
 		</div>
 		<!-- Overlay -->
 		<div class="layout-overlay layout-menu-toggle"></div>

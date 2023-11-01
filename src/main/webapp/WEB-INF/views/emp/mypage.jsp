@@ -50,7 +50,7 @@
 
 									<tr>
 										<td>사번</td>
-										<td>${user.username}</td>
+										<td>${user.userName}</td>
 									</tr>
 									<tr>
 										<td>이름</td>
@@ -92,8 +92,8 @@
 								</table>
 							</div>
 							<br>
-							<a href="/emp/mypageUpdate?username=${user.username}" class="btn btn-danger">수정</a>
-							<a href="/emp/pwUpdate?username=${user.username}" class="btn btn-danger">비밀번호 변경</a>
+							<a href="/emp/mypageUpdate?userName=${user.userName}" class="btn btn-danger">수정</a>
+							<a href="/emp/pwUpdate?username=${user.userName}" class="btn btn-danger">비밀번호 변경</a>
 						</div>
 				</div>
 				<!-- Content wrapper -->

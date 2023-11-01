@@ -3,11 +3,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- jsp에서 properties 메세지를 사용할 수 있도록 하는 API -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr"
 	data-theme="theme-default" data-assets-path="/assets/"
 	data-template="vertical-menu-template-free">
 <head>
+
+	<!-- include summernote -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+	  integrity="sha256-7ZWbZUAi97rkirk4DcEp4GWDPkWpRMcNaEyXGsNXjLg=" crossorigin="anonymous">	  
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css"
+	integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="anonymous">
+	
 	<!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
@@ -27,11 +35,14 @@
 
 <body>
 	<!-- Layout wrapper -->
+	<sec:authentication property="Principal" var="user"/>
 	<div class="layout-wrapper layout-content-navbar">
 		<div class="layout-container">
 			<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
 			<!-- Layout container -->
 			<div class="layout-page">
+			
+			
 				<c:import url="/WEB-INF/views/layout/topbar.jsp"></c:import>
 				<!-- Content wrapper -->
 				<div class="content-wrapper">				
@@ -43,8 +54,8 @@
 				    		<form action="poomAdd" id="addFrm" method="post">
 				    		
 				    			<div class="mb-3">
-								  <label for="empNo" class="form-label">사번</label>
-								  <input type="hidden" class="form-control" id="empNo" name="empNo" value="${emp.empNo}">
+								  <label for="username" class="form-label"></label>
+								  <input type="hidden" class="form-control" id="username" name="username" value="${user.username}">
 								</div>
 				    						    			
 				    			<div class="mb-3">
@@ -58,8 +69,8 @@
 								</div>
 								
 				    			<div class="mb-3">
-								  <label for="name" class="form-label">성명</label>
-								  <input type="text" class="form-control" id="name" name="name" value="${emp.name}" readonly>
+								  <label for="empName" class="form-label">성명</label>
+								  <input type="text" class="form-control" id="empName" name="empName" value="${user.empName}" readonly>
 								</div>
 								
 				    			<div class="mb-3">
@@ -76,7 +87,7 @@
 								  <label for="apContents" class="form-label">내용</label>
 								  <textarea class="form-control" id="apContents" name="apContents" rows="3" placeholder="내용을 입력하세요"></textarea>
 								</div>
-					
+								
 					    		<div class="row">
 									<div class="demo-inline-spacing">
 										<button type="button" class="btn btn-primary" id="addBtn">작성</button>
@@ -115,10 +126,10 @@
 	integrity="sha256-y2bkXLA0VKwUx5hwbBKnaboRThcu7YOFyuYarJbCnoQ=" crossorigin="anonymous"></script>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-	  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	
 	<script>
-	$('#apFormatContents').summernote({
+	$('#apContents').summernote({
 	  tabsize: 2,
 	  height: 500,
 	  codemirror: { // codemirror options
@@ -126,8 +137,10 @@
 		  },
 	  lang: 'ko-KR', // default: 'en-US'
 	});
+	
+	$("#apContents").summernote('code'); 
 	</script>
 	
-	<script src="/resources/js/approval/apAdd.js"></script>
+	<script src="/js/approval/apPoomAdd.js"></script>
 </body>
 </html>

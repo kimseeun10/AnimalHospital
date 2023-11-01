@@ -16,7 +16,7 @@ public class TreatmentVO {
 
 	private Long treatmentNo;
 	private Date treatmentDate;
-	private Timestamp treatmentDatet;
+	private LocalDateTime treatmentDatet;
 	private Time treatmentTime;
 	private Long customerNo;
 	private Long empNo;

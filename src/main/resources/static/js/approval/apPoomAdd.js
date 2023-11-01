@@ -1,4 +1,4 @@
-let empNo = document.getElementById("empNo").value;				// 사번
+let username = document.getElementById("username").value;				// 사번
 
 let apTitle = document.getElementById("apTitle");			// 전자결재 양식 제목
 let apContents = document.getElementById("apContents");		// 전자결재 양식 내용
@@ -22,6 +22,7 @@ addBtn.addEventListener("click", function(){
         return;
     }
     
+
     // 폼에 입력한 데이터를 서버로 전송
     addFrm.submit();
     
@@ -30,5 +31,6 @@ addBtn.addEventListener("click", function(){
 
 // 취소 버튼
 cancleBtn.addEventListener("click", function(){
-	location.href = "/approval/draftList?empNo=" + empNo;
+	/*location.href = "/approval/draftList/" + username;*/
+	location.href = "/approval/formatList";
 })

@@ -14,7 +14,7 @@ class CustomerDAOTest {
 
 	@Test
 	void setAddTest() throws Exception {
-		for(int i = 0; i<50; i++) {
+		for(int i = 0; i<150; i++) {
 			CustomerVO customerVO = new CustomerVO();
 			customerVO.setAnimalName("animalName"+i);
 			customerVO.setGender("남자");

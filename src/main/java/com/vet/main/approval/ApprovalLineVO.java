@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 public class ApprovalLineVO {
 	private Long apNo;
-	private Long empNo;
+	private String userName;
 	private String apPerson;
 	private Long apState;
 	private Date apContfimeDate;

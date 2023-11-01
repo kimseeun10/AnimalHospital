@@ -112,6 +112,6 @@
 	$("#apFormatContents").summernote('code'); 
 	</script>
 	
-	<script src="/resources/js/approval/format/formatAdd.js"></script>
+	<script src="/js/approval/format/formatAdd.js"></script>
 </body>
 </html>

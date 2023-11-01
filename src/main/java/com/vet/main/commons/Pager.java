@@ -25,6 +25,8 @@ public class Pager {
 	private String kind; //검색할 컬럼명 
 	private String search; //검색어
 	
+	private String username;
+	
 	//시작 index 번호를 계산하는 메서드
 	public void makeStartRow() {
 		//page = 1, startRow = 0
