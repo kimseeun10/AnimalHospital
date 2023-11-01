@@ -31,7 +31,7 @@ public interface EmpDAO {
 	
 	public int pwUpdate(EmpVO empVO)throws Exception;
 
-//	public void save(EmpVO empVO);
+//	public void save(EmpVO empVO); 123숮ㅇ
 	
 	public int empRole(Map<String, Object> map)throws Exception; //회원가입시 권한 부여하는 것
 	
