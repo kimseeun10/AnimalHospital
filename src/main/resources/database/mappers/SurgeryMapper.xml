@@ -47,6 +47,19 @@
 	  	 WHERE SURGERYNO=#{surgeryNo} 		
 	</select>
 	
+	
+	<update id="setUpdate" parameterType="SurgeryVO">
+		UPDATE SURGERY 
+		   SET SURGERYSTART=#{surgeryStart},
+		   	   SURGERYEND=#{surgeryEnd},
+		   	   SURGERYROOM=#{surgeryRoom}, 
+			   SURGERYNAME=#{surgeryName},
+			   CUSTOMERNO=#{customerNo},		   	   
+		       USERNAME=#{userName}
+	     WHERE SURGERYNO=#{surgeryNo}
+	</update>
+	
+	
 	<delete id="setDelete" parameterType="SurgeryVO">
 		DELETE FROM SURGERY WHERE SURGERYNO=#{surgeryNo};		
 	</delete>

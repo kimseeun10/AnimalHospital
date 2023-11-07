@@ -34,15 +34,15 @@
                
                <!-- 내용부분-->               
                <div class="container-xxl flex-grow-1 container-p-y">
+                 
                <select name='deptNo' id="deptNo" class="form-select form-select-sm" aria-label="Small select example"> 
-               	   <option selected>선택해주세요</option>
-               	   <option value="300">전체</option>
+	           	   <option selected>선택해주세요</option>
+	           	   <option value="300">전체</option>
 	               <option value="400">내과</option>
 	               <option value="500">외과</option>
 	               <option value="600">영상과</option>       
-	           </select>     
- 
-               <div id="calendar"></div>                           
+	          </select> 
+               <div id="calendar"> </div>                           
                
                
                <!-- add Modal -->
@@ -55,12 +55,14 @@
                      </div>
                      <div class="modal-body">               
                      <input type="hidden" id="customerNo" name="customerNo" value="${param.customerNo}" >
-                     	<form action="./customerList" method="get">
-                        <div>
-                     	고객 : <input type="text" name="animalName" id="animalName" value="${param.animalName}">                  
-                        <button type="submit" id="customerSearch" class="btn btn-primary" >검색</button>
-                        </div>
-                        </form>
+                     	
+	                     <form action="./customerList" method="get">
+		                     <div>
+		                  	    고객 : <input type="text" name="animalName" id="animalName" value="${param.animalName}">                  
+		                     <button type="submit" id="customerSearch" class="btn btn-primary" >검색</button>
+		                     </div>
+	                     </form>
+                      
                         <input type="hidden" id="username" value="${param.username}">                  
                         
                         <div>                    
@@ -77,7 +79,8 @@
                    </div>
                  </div>
                </div>
-            
+                          
+               
                
                 <!--detail modal -->
                 <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

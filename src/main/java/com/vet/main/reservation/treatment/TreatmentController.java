@@ -107,11 +107,10 @@ public class TreatmentController {
 	}
 	
 	//고객리스트조회
-	@GetMapping("customerList")	
+	@GetMapping("customerList")
 	public List<CustomerVO> getCustomerList(Model model, CustomerVO customerVO)throws Exception{
 		List<CustomerVO> list = treatmentService.getCustomerList(customerVO);
-		model.addAttribute("list", list);	
-		
+		model.addAttribute("list", list);
 		log.info("customerlist:{}", list );
 		
 		return list;	

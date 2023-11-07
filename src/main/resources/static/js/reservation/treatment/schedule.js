@@ -69,7 +69,12 @@ $(function(){
 									console.log(data);
 									console.log("고객검색해!!!!")
 									var arr = data;
-																						
+									console.log(arr);
+									for(var i=0; i<arr.length;i++){
+										var name = arr[i].name;
+										$("#nn").val(name);
+										console.log("이거맞나" + name);
+									}																															
 								}
 							})						
 						})*/

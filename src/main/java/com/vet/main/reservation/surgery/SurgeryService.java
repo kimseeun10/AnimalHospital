@@ -41,4 +41,7 @@ public class SurgeryService {
 		return surgeryDAO.setDelete(surgeryVO);
 	}
 	
+	public int setUpdate(SurgeryVO surgeryVO)throws Exception{
+		return surgeryDAO.setUpdate(surgeryVO);
+	}
 }

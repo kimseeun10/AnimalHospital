@@ -30,7 +30,9 @@ public class SurgeryController {
    	private SurgeryService surgeryService;
 	
 	@GetMapping("schedule")
-	public String getScheduleList1()throws Exception{
+	public String getScheduleList1(Model model)throws Exception{
+		List<EmpVO> emplist = surgeryService.getEmpList();
+		model.addAttribute("emplist", emplist);
 		
 		return "/surgery/schedule";
 	}
@@ -107,5 +109,12 @@ public class SurgeryController {
 		surgeryService.setDelete(surgeryVO);
 		
 		return "redirect:./schedule";
+	}
+	
+	@PostMapping("scheduleUpdate")
+	public String setUpdate(@RequestBody SurgeryVO surgeryVO)throws Exception{
+		 surgeryService.setUpdate(surgeryVO);
+		
+		return "surgery/schedule";
 	}
 }

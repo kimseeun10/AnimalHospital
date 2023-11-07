@@ -16,5 +16,5 @@ public interface SurgeryDAO {
 	public List<EmpVO> getEmpList();
 	public SurgeryVO getDetail(SurgeryVO surgeryVO);
 	public int setDelete(SurgeryVO surgeryVO);
-
+	public int setUpdate(SurgeryVO surgeryVO);
 }

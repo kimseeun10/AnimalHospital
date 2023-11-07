@@ -69,7 +69,7 @@
                      	    수술 시작시간 : <input type="datetime-local" id="surgeryStart">
                         </div>
                         <div>
-                            수술 예상끝시간 : <input type="datetime-local" id="surgeryEnd">
+                            수술 예상종료시간 : <input type="datetime-local" id="surgeryEnd">
                          </div>              
                      </div>
                      <div class="modal-footer">
@@ -162,7 +162,7 @@
                           
                           <tr>
                             <td class="align-middle text-center text-sm">
-                              <span class="text-secondary text-xs font-weight-bold">수술 예상끝시간 : </span>
+                              <span class="text-secondary text-xs font-weight-bold">수술 예상종료시간 : </span>
                             </td> 
                             <td class="align-middle text-center text-sm">
                               <span class="text-secondary text-xs font-weight-bold">
@@ -187,7 +187,7 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">진료예약 수정</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">수술예약 수정</h1>
                         <button type="button" id="closeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
@@ -201,18 +201,43 @@
 							</td>
 	                        <td class="align-middle text-center text-sm">
 	                            <span class="text-secondary text-xs font-weight-bold">
-	                            	<input type="text" readonly name="animalName" id="updateName" val="" class="form-control-plaintext">
+	                            	<input type="text" readonly name="animalName" id="upname" val="" class="form-control-plaintext">
 	                            </span>
 	                        </td> 
                       </tr>
                       
                       <tr>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">수술실 : </span>
+                      </td> 
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">
+                        <select name='surgeryRoom' id="upsurno" class="form-select form-select-sm" aria-label="Small select example"> 
+	                        <option value="1">수술실1</option>
+	                        <option value="2">수술실2</option>
+                        </select> 
+                        </span>
+                      </td>                                                     
+                     </tr>
+
+                     <tr>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">수술명 : </span>
+                      </td> 
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">
+                        <input type="text" class="form-control-plaintext" id="upsurname" value=""></div>
+                        </span>
+                      </td>                                                     
+                      </tr>                      
+                    
+                      <tr>
 						<td class="align-middle text-center text-sm">
-							<span class="text-secondary text-xs font-weight-bold">진료의: </span>
+							<span class="text-secondary text-xs font-weight-bold">수술의사: </span>
 						</td>
                       <td class="align-middle text-center text-sm">
                           <span class="text-secondary text-xs font-weight-bold">
-	                          <select name='username' id="updateusername" class="form-select form-select-lg mb-3" aria-label="Large select example">                      
+	                          <select name='username' id="upusername" class="form-select form-select-lg mb-3" aria-label="Large select example">                      
 								<c:forEach items="${emplist}" var="a">
 									<option value="${a.username}" >${a.empName}</option>
 								</c:forEach>				
@@ -222,15 +247,28 @@
                       </tr>
                       
                       <tr>
-						<td class="align-middle text-center text-sm">
-							<span class="text-secondary text-xs font-weight-bold">진료시간: </span>
-						</td>
-	                    <td class="align-middle text-center text-sm">
-	                          <span class="text-secondary text-xs font-weight-bold">
-	                          	<input type="datetime-local" id="modifyDate" val="">
-	                          </span>
-	                    </td> 
-                      </tr>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">수술 시작시간 : </span>
+                      </td> 
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">
+                        <input type="datetime-local"  id="upstartdate" value="">
+                        </span>
+                      </td>                                                     
+                    </tr>
+                    
+                    <tr>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">수술 예상종료시간 : </span>
+                      </td> 
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">
+                        <input type="datetime-local"  id="upenddate" value="">
+                        </span>
+                      </td>                                                     
+                    </tr> 
+                      
+                      
                       </tbody>
                      </table>
                       </div>

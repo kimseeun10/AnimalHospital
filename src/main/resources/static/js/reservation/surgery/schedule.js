@@ -118,15 +118,29 @@ $(function(){
 						$("#getstartdate").val(detail.surgeryStart);
 						$("#getenddate").val(detail.surgeryEnd);
 						
+						
 						 //수정버튼클릭시
-						$("#modifyBtn").on("click", function(){				
+						$("#modifyBtn").on("click", function(){	
+							$("#detailModal").modal("hide");
+							$("#updateModal").modal("show");
+							
+							$("#upname").val(detail.animalName);
+							$("#upsurno").val(detail.surgeryRoom);
+							$("#upsurname").val(detail.surgeryName);
+							$("#upusername").val(detail.userName);
+							
+							$("#upstartdate").val(detail.surgeryStart);
+							$("#upenddate").val(detail.surgeryEnd);
+					
+							var usernameval = $("#upusername");
+							console.log(usernameval);		
 							
 					   })				
 											            													
 					}
 				 })
 				 
-				 	 //삭제버튼클릭시
+				 //삭제버튼클릭시
 				 $("#deleteBtn").on("click",function(){
 							console.log(param);
 							$.ajax({
@@ -144,13 +158,35 @@ $(function(){
 							})
 				 })	
 				 
-				
-				 
-				 
 				 
 				 //수정등록버튼클릭시
 				 $("#updateBtn").on("click",function(){
-					 	   
+					 		var upname = $("#upname").val();
+							
+					 		var surgeryNo = $("#surgeryNo").val();				 
+							var customerNo = $("#getcustomerNo").val();
+																		
+							var username= $("#upusername").val();							
+							var surgeryStart = $("#upstartdate").val();
+							var surgeryEnd=$("#upenddate").val();
+							var surgeryRoom=$("#upsurno").val();
+							var surgeryName=$("#upsurname").val();
+							
+							
+							var param = {"surgeryNo":surgeryNo, "customerNo":customerNo, "userName":username, "surgeryStart":surgeryStart,
+										 "surgeryEnd":surgeryEnd, "surgeryRoom":surgeryRoom, "surgeryName":surgeryName}
+							
+							console.log(param);
+							$.ajax({
+										url:"/surgery/scheduleUpdate",
+										data:JSON.stringify(param),
+										method:"POST",
+										contentType: "application/json",
+										success : function(data){
+											console.log("surgery update성공")					
+											location.href="/surgery/schedule";
+										}							 
+						 	})		   
 								
 				 })				
 
